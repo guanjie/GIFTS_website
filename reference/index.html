@@ -2,6 +2,7 @@
 
 <head>
 <link href='https://fonts.googleapis.com/css?family=Londrina+Shadow' rel='stylesheet' type='text/css'>
+<script src="/assets/jquery.js"></script>
 <style>
 body {
   font-family: helvetica, sans-serif;
@@ -29,6 +30,7 @@ h2 {
   margin: 0px 0 70px 0;
 }
 p {
+  height: 30px;
   color: rgba(255,255,255,1);
   background: black;
   background: linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,.4));
@@ -40,7 +42,24 @@ p {
   position: absolute;
   bottom: 0;
   margin: 0;
+  
+  transition: height .5s;
+  -webkit-transition: height .5s;
+  -moz-transition: height .5s;
 }
+
+small {
+  color: #232323;
+}
+
+.show-description p {
+  height: 150px;
+}
+
+.show-description small {
+  opacity: 1;
+}
+
 
 .first{
   background-image: url("http://dash.ga.co/assets/firstcourse.jpg");
@@ -54,6 +73,30 @@ p {
 .price {
   float: right;
 }
+
+@media (max-width: 500px){
+  h1 {
+    font-size: 50px;
+    margin-top: 20px;
+    line-height: 40px;
+  }
+  h2 {
+    font-size: 20px;
+    margin: 20px 0 30px 0;
+  }
+  div {
+    margin: 20px 12px 0 12px;
+  }
+  p{
+    font-size: 20px;
+    line-height: 24px;
+  }
+  small {
+    font-size: 16px;
+  }
+  
+}
+
 </style>
 
 </head>
@@ -66,7 +109,7 @@ p {
   <small>Mustard sierra leone bologi kale chard beet greens black-eyed pea sorrel amaranth garlic tigernut spring onion summer purslane asparagus lentil. </small></p>
 </div>
 
-<div class="second">
+<div class="second show-description">
   <p>pastrami boudin tongue <span class="price">$22</span><br />
   <small>Tri-tip capicola kielbasa salami brisket chicken rump strip steak drumstick. Meatloaf chuck boudin ribeye pork jowl. Andouille bacon jowl meatloaf pork loin prosciutto bresaola.</small></p>
 </div>
@@ -75,5 +118,12 @@ p {
   <p>fruitcake marzipan pudding dragee <span class="price">$8</span><br />
   <small>Lollipop tart cotton candy jelly-o carrot cake apple pie cupcake. Jelly-o bear claw ice cream candy canes.</small></p>
 </div>
+
+<script>
+$('div').on('click', function(){
+  $(this).toggleClass('show-description');
+  });
+</script>
+
 
 </body>
